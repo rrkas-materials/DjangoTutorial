@@ -1,0 +1,12 @@
+1   Setup project
+    $ virtualenv venv
+    $ venv\Scripts\activate
+    (venv) $ pip install -r requirements.txt
+    (venv) $ django-admin startproject djangoblog
+
+2   start website:
+    (venv) $ cd djangoblog
+    (venv) $ python manage.py runserver
+
+3   setup app (every section of project = app) (project can contain multiple apps)
+    (venv) $ python manage.py startapp blog
