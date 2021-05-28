@@ -10,3 +10,27 @@
 
 3   setup app (every section of project = app) (project can contain multiple apps)
     (venv) $ python manage.py startapp blog
+
+4   Access and use admin route
+    (venv) $ python manage.py makemigrations
+    (venv) $ python manage.py migrate
+    (venv) $ python manage.py createsuperuser
+
+5   migrate posts into database
+    (venv) $ python manage.py makemigrations
+    (venv) $ python manage.py sqlmigrate blog 0001
+        BEGIN;
+        --
+        -- Create model Post
+        --
+        CREATE TABLE "blog_post" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(100) NOT NULL, "content" text NOT NULL, "date_posted" datetime NOT NULL, "author_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED);
+        CREATE INDEX "blog_post_author_id_dd7a8485" ON "blog_post" ("author_id");
+        COMMIT;
+    (venv) $ python manage.py migrate
+
+6   create db using models
+    (venv) $ python manage.py shell
+        refer query.txt for interactive outputs
+
+7   create user app in project
+    (venv) $ python manage.py startapp users

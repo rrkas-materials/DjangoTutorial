@@ -1,10 +1,16 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Post
 
 
 def home(request):
-    return HttpResponse('<html><h1>Welcome to blog</h1></html>')
+    context = {
+        'posts': Post.objects.all(),
+    }
+    return render(request, 'blog/home.html', context)
 
 
 def about(request):
-    return HttpResponse('<html><h1>About</h1></html>')
+    context = {
+        'title': 'About',
+    }
+    return render(request, 'blog/about.html', context)
