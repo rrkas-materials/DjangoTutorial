@@ -84,3 +84,27 @@ datetime.datetime(2021, 5, 28, 7, 23, 41, 83326, tzinfo=<UTC>)
 <Post: Blog3>
 >>> Post.objects.all()
 <QuerySet [<Post: Blog 1>, <Post: Blog 2>, <Post: Blog3>]>
+
+-----------------------------------------------------------------------------------
+
+
+>>> from django.contrib.auth.models import User
+>>> user = User.objects.get(id=1)
+>>> user
+<User: rrka79wal>
+>>> user.profile
+<Profile: rrka79wal Profile>
+>>> user.profile.image
+<ImageFieldFile: profile_pics/RA_LOGO_square_with_white_bg.png>
+>>> user.profile.image.width
+2289
+>>> user.profile.image.source
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'ImageFieldFile' object has no attribute 'source'
+>>> user.profile.image.url
+'/profile_pics/RA_LOGO_square_with_white_bg.png'
+>>> user = User.objects.get(id=3)
+>>> user.profile.image.url
+'/default.jpg'
+>>> exit()

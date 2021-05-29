@@ -34,3 +34,5 @@
 
 7   create user app in project
     (venv) $ python manage.py startapp users
+
+8
