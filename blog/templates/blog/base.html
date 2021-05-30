@@ -51,24 +51,25 @@
     <div class="row">
         <div class="col-md-8">
             {% if messages %}
-            {% for msg in messages%}
-            <div class="alert alert-{{ msg.tags }}">{{ msg }}</div>
-            {% endfor %}
+                {% for msg in messages%}
+                    <div class="alert alert-{{ msg.tags }}">{{ msg }}</div>
+                {% endfor %}
             {% endif %}
             {% block content %}{% endblock %}
         </div>
+        {% if user.is_authenticated %}
         <div class="col-md-4">
             <div class="content-section">
-                <h3>Our Sidebar</h3>
-                <p class='text-muted'>You can put any information here you'd like.
+                <h3>Tools</h3>
                 <ul class="list-group">
-                    <li class="list-group-item list-group-item-light">Latest Posts</li>
-                    <li class="list-group-item list-group-item-light">Announcements</li>
-                    <li class="list-group-item list-group-item-light">Calendars</li>
-                    <li class="list-group-item list-group-item-light">etc</li>
+                    <li class="list-group-item list-group-item-light"><a href="{% url 'post-create' %}">Create Post</a></li>
+<!--                    <li class="list-group-item list-group-item-light">Announcements</li>-->
+<!--                    <li class="list-group-item list-group-item-light">Calendars</li>-->
+<!--                    <li class="list-group-item list-group-item-light">etc</li>-->
                 </ul>
                 </p>
             </div>
+            {% endif %}
         </div>
     </div>
 </main>
