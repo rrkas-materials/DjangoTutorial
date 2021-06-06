@@ -2,3 +2,4 @@ venv
 media/profile_pics/
 *.pyc
 *.bak
+*.sqlite3
