@@ -35,4 +35,10 @@
 7   create user app in project
     (venv) $ python manage.py startapp users
 
-8
+8   Deploy
+    $ heroku login
+    $ heroku create <appname>
+    $ git add .
+    $ git commit -m "<message>"
+    $ git push heroku master
+    $
