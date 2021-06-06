@@ -44,3 +44,4 @@
     $ heroku run python manage.py migrate
     $ heroku run bash
         $ python manage.py createsuperuser
+        $ exit
